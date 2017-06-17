@@ -11,21 +11,21 @@ import UIKit
 
 struct Libro {
     
-    var isbnCode : String!
-    var title = "Sin Título"
-    var authors = ["Sin Autores"]
+    var isbn : String!
+    var titulo = "Sin Título"
+    var autores = ["Sin Autores"]
     var imagen = UIImage()
     
     init (isbnCode: String) {
         
-        self.isbnCode = isbnCode
+        self.isbn = isbnCode
     }
     
     init (isbnCode: String, title: String, authors: [String], cover: UIImage) {
         
-        self.isbnCode = isbnCode
-        self.title = title
-        self.authors = authors
+        self.isbn = isbnCode
+        self.titulo = title
+        self.autores = authors
         self.imagen = cover
     }
 }

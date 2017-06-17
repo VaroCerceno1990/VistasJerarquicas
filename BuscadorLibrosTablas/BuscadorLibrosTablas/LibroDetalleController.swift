@@ -11,8 +11,10 @@ import UIKit
 class LibroDetalleController: UIViewController {
     
     var libro : Libro!
-    
-    
+    @IBOutlet weak var tituloLabel: UILabel!
+    @IBOutlet weak var isbnLabel: UILabel!
+    @IBOutlet weak var autorLabel: UILabel!
+    @IBOutlet weak var portadaImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,15 +27,25 @@ class LibroDetalleController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        
+        tituloLabel.text = self.libro.titulo
+        isbnLabel.text = "ISBN: " + self.libro.isbn
+        autorLabel.text = self.formatearAutores(self.libro.autores)
+        portadaImageView.image = self.libro.imagen
     }
-    */
 
+    func formatearAutores (_ authors: [String]) -> String {
+        
+        var prefix = String()
+        var authorList = String()
+        
+        for author in authors {
+            
+            authorList = authorList + prefix + author
+            prefix = "\n"
+        }
+        
+        return authorList
+    }
 }

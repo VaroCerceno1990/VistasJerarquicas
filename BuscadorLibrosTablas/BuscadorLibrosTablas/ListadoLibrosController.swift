@@ -27,6 +27,11 @@ class ListadoLibrosController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        tableView.reloadData()
+    }
 
     // MARK: - Table view data source
 
@@ -44,7 +49,7 @@ class ListadoLibrosController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CeldaLibro", for: indexPath)
         
-        cell.textLabel?.text = listadoLibros[indexPath.row].title
+        cell.textLabel?.text = listadoLibros[indexPath.row].titulo
 
         // Configure the cell...
 

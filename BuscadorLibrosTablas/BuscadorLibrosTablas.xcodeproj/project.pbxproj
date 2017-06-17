@@ -10,6 +10,7 @@
 		38056E341EF4D48000EB067F /* LibroBusquedaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38056E331EF4D48000EB067F /* LibroBusquedaController.swift */; };
 		38056E361EF4D5F100EB067F /* ListadoLibrosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38056E351EF4D5F100EB067F /* ListadoLibrosController.swift */; };
 		38056E381EF4D61200EB067F /* LibroDetalleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38056E371EF4D61200EB067F /* LibroDetalleController.swift */; };
+		38056E3A1EF4EE0000EB067F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38056E391EF4EE0000EB067F /* Reachability.swift */; };
 		38E0919A1EF4CE9000661D1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E091991EF4CE9000661D1D /* AppDelegate.swift */; };
 		38E0919D1EF4CE9000661D1D /* BuscadorLibrosTablas.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 38E0919B1EF4CE9000661D1D /* BuscadorLibrosTablas.xcdatamodeld */; };
 		38E091A41EF4CE9000661D1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E091A21EF4CE9000661D1D /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 		38056E331EF4D48000EB067F /* LibroBusquedaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibroBusquedaController.swift; sourceTree = "<group>"; };
 		38056E351EF4D5F100EB067F /* ListadoLibrosController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListadoLibrosController.swift; sourceTree = "<group>"; };
 		38056E371EF4D61200EB067F /* LibroDetalleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibroDetalleController.swift; sourceTree = "<group>"; };
+		38056E391EF4EE0000EB067F /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		38E091961EF4CE9000661D1D /* BuscadorLibrosTablas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuscadorLibrosTablas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38E091991EF4CE9000661D1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38E0919C1EF4CE9000661D1D /* BuscadorLibrosTablas.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BuscadorLibrosTablas.xcdatamodel; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				38056E331EF4D48000EB067F /* LibroBusquedaController.swift */,
 				38056E351EF4D5F100EB067F /* ListadoLibrosController.swift */,
 				38056E371EF4D61200EB067F /* LibroDetalleController.swift */,
+				38056E391EF4EE0000EB067F /* Reachability.swift */,
 			);
 			path = BuscadorLibrosTablas;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38056E3A1EF4EE0000EB067F /* Reachability.swift in Sources */,
 				38056E381EF4D61200EB067F /* LibroDetalleController.swift in Sources */,
 				38E091B11EF4D3AB00661D1D /* Libro.swift in Sources */,
 				38E0919D1EF4CE9000661D1D /* BuscadorLibrosTablas.xcdatamodeld in Sources */,
