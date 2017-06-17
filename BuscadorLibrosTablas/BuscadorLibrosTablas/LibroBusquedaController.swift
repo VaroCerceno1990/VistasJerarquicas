@@ -14,9 +14,12 @@ class LibroBusquedaController: UIViewController {
     var libro : Libro!
     var listadoLibro : ListadoLibrosController!
     let baseurl = "https://openlibrary.org/api/books?jscmd=data&format=json&bibkeys=ISBN:"
+    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title="Búsqueda"
 
         // Do any additional setup after loading the view.
     }
@@ -26,7 +29,6 @@ class LibroBusquedaController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
    
     // MARK: - Navigation
 
@@ -39,22 +41,18 @@ class LibroBusquedaController: UIViewController {
 
     }
     
-    func BuscarInfoLibro (isbnBusqueda: String) -> Libro{
-         var book = Libro(isbnCode: isbnBusqueda, title: "Título No Definido", authors: [ "Autor No Definido" ], cover: UIImage())
+    func BuscarInfoLibro (isbnBusqueda: String) -> Libro?{
+        
+        var book = Libro(isbnCode: isbnBusqueda, title: "Título No Definido", authors: [ "Autor No Definido" ], cover: UIImage())
         
         if Reachability.shared.isConnectedToNetwork()
         {
-            
             let url=NSURL(string: baseurl + isbnBusqueda)
             let datos:NSData?=NSData(contentsOf: url! as URL)
-            
-           
-
             
             do{
                 if let json = try JSONSerialization.jsonObject(with: datos! as Data, options:
                     JSONSerialization.ReadingOptions.mutableContainers) as? [String : AnyObject]{
-                    
                     if let bookJson = json["ISBN:" + isbnBusqueda] as? [String : AnyObject] {
                         
                         if let authors = bookJson["authors"] as? [AnyObject] {
@@ -81,7 +79,10 @@ class LibroBusquedaController: UIViewController {
                         }
                     }
                     else{
+                       
                         showAlertMessage(title: "Error", message: "El ISBN digitado no existe", owner: self)
+                       
+                        return nil
                     }
                 }
                
@@ -94,16 +95,16 @@ class LibroBusquedaController: UIViewController {
         }
             
         else{
+            
             showAlertMessage(title: "Error", message: "Por favor revise la conexión de internet e intente nuevamente", owner: self)
+                       return nil
         
         }
-        
-        return book
+               return book
         
     }
     
     
-
     func BuscarLibroEnTabla (isbn: String) -> Libro! {
         
         var libroEncontrado : Libro!
@@ -128,7 +129,7 @@ class LibroBusquedaController: UIViewController {
     
     @IBAction func BuscarLibro(_ sender: UITextField) {
         sender.resignFirstResponder()
-        
+      
         if let isbn = sender.text, !isbn.isEmpty {
             
             if let book = BuscarLibroEnTabla(isbn: isbn) {
@@ -137,15 +138,21 @@ class LibroBusquedaController: UIViewController {
                 performSegue(withIdentifier: "LibroSegue", sender: sender)
                 
             } else {
-                
-                
-                let bookAux=BuscarInfoLibro(isbnBusqueda: isbn)
+                let bookAux:Libro?=BuscarInfoLibro(isbnBusqueda: isbn)
+    
+
+                if((bookAux) != nil)
+                {
                 self.libro = bookAux
-                self.listadoLibro.listadoLibros.append(bookAux)
+                self.listadoLibro.listadoLibros.append(bookAux!)
                 
                 self.performSegue(withIdentifier: "LibroSegue", sender: sender)
+                }
                 
             }
+        }
+        else{
+             showAlertMessage(title: "Error", message: "Por favor digite el ISBN a buscar e intente nuevamente", owner: self)
         }
 
     }

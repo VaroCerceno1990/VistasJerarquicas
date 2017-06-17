@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListadoLibrosController: UITableViewController {
+class ListadoLibrosController: UITableViewController{
 
     
     var listadoLibros = [Libro]()

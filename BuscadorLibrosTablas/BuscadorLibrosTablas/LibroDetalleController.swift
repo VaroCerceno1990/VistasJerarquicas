@@ -18,6 +18,7 @@ class LibroDetalleController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title="Detalle del libro"
 
         // Do any additional setup after loading the view.
     }
@@ -25,6 +26,10 @@ class LibroDetalleController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
